@@ -1,0 +1,61 @@
+{
+  "name": "copilot-credit-tracker",
+  "displayName": "Copilot Credit Tracker",
+  "description": "Tracks GitHub Copilot AI credit usage against the current month.",
+  "icon": "logo-0.0.3.png",
+  "version": "0.0.3",
+  "publisher": "rui-alves-supertechman",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionDependencies": [
+    "vscode.github-authentication"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Copilot Credit Tracker",
+      "properties": {
+        "copilotCreditTracker.monthlyLimit": {
+          "type": "number",
+          "default": 7000,
+          "description": "Your monthly GitHub AI credit limit (e.g., 1500 for Pro, 7000 for Pro+)"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "copilot-credit-tracker.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
