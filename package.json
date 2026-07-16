@@ -3,7 +3,7 @@
   "displayName": "Copilot Credit Tracker",
   "description": "Tracks GitHub Copilot AI credit usage against the current month.",
   "icon": "logo-0.0.3.png",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "rui-alves-supertechman",
   "engines": {
     "vscode": "^1.125.0"

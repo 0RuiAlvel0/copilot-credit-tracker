@@ -1,3 +1,4 @@
+
 # Copilot Credit Tracker
 
 Track your GitHub Copilot monthly AI credit usage directly in VS Code.

@@ -23,8 +23,8 @@ export function activate(context: vscode.ExtensionContext) {
     statusBarItem.command = showPanelCommandId;
 
     updateStatusBar();
-    // Refresh the background data every hour
-    setInterval(updateStatusBar, 1000 * 60 * 60); 
+    // Refresh the background data every 30 minutes to keep the status bar up-to-date
+    setInterval(updateStatusBar, 1000 * 60 * 30); // 30 minutes
 }
 
 async function updateStatusBar() {
