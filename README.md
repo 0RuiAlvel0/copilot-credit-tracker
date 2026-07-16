@@ -1,3 +1,11 @@
+# Goal
+
+A simple VS Code extension that tracks your GitHub Copilot monthly credits vs month progress.
+
+It shows this simple status bar message where you can quickly assess your usage and see if you are on track or ahead of your monthly budget:
+
+![Copilot Credit Tracker Screenshot](https://ik.imagekit.io/supertechman/Screenshot%202026-07-15%20170018.png?updatedAt=1784106174855)
+
 
 # Copilot Credit Tracker
 
@@ -26,13 +34,13 @@ Click the status bar item to open a detailed panel with a model-by-model usage b
 2. It requests your GitHub user profile.
 3. It fetches your monthly AI credit usage from GitHub billing APIs.
 4. It calculates your usage percentage against your configured monthly limit.
-5. It updates the status bar and refreshes automatically every hour.
+5. It updates the status bar and refreshes automatically every 30 minutes.
 
 If you are not signed in, the extension prompts you to authenticate with GitHub.
 
 ## Requirements
 
-- VS Code 1.125.0 or newer
+- VS Code 1.125.0 or newer (at least this was the one it was developed for and tested on)
 - GitHub Authentication extension enabled (built-in dependency: vscode.github-authentication)
 - A GitHub account with Copilot access
 
@@ -46,6 +54,7 @@ If you are not signed in, the extension prompts you to authenticate with GitHub.
 
 ### Option 2: From VSIX (local/manual install)
 
+0. You can download the latest .vsix file from the releases page. If you do that, you can start on step 2. Otherwise, you can build the .vsix file yourself from the source code:
 1. Package the extension:
 	 - npm install
 	 - npm run compile
