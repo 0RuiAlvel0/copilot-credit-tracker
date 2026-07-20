@@ -10,6 +10,11 @@ Because I can (and really not because I need), there's a bit more detail in a we
 
 ![Copilot Credit Tracker Screenshot](https://ik.imagekit.io/supertechman/thisistheman.png?updatedAt=1784106489390)
 
+# Contacts
+
+- GitHub: [supertechman](https://github.com/0RuiAlvel0/copilot-credit-tracker)
+- website: [supertechman.com](https://site.supertechman.com/posts/show/copilot-credit-tracker-in)
+
 # Copilot Credit Tracker
 
 Track your GitHub Copilot monthly AI credit usage directly in VS Code.
