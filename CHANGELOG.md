@@ -8,6 +8,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - No unreleased changes yet.
 
+## [0.1.1] - 2026-08-01
+
+### Changed
+
+- Bumped extension version in `package.json` to `0.1.1` due to some issues on getting the version to update on the marketplace. No code changes were made in this release.
+
 ## [0.1.0] - 2026-08-01
 
 ### Added
