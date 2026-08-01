@@ -31,8 +31,8 @@
     },
     "commands": [
       {
-        "command": "copilot-credit-tracker.helloWorld",
-        "title": "Hello World"
+        "command": "copilot-credit-tracker.showPanel",
+        "title": "Copilot Credit Tracker: Show Breakdown"
       }
     ]
   },
