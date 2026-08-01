@@ -25,6 +25,8 @@ This extension adds a status bar indicator that compares:
 
 Click the status bar item to open a detailed panel with a model-by-model usage breakdown.
 
+The panel also includes a cached 12-month history view so you can compare current usage against previous months.
+
 ## Features
 
 - Status bar usage snapshot (month progress vs credit usage)
@@ -34,6 +36,8 @@ Click the status bar item to open a detailed panel with a model-by-model usage b
 	- total credits used
 	- usage percentage
 	- usage by model
+- Previous 12 months history table (month, credits used, limit, usage percentage, and last synced date)
+- Manual "Refresh History" action to re-sync historical usage from GitHub
 - Configurable monthly credit limit
 
 ## How It Works
@@ -77,6 +81,7 @@ If you are not signed in, the extension prompts you to authenticate with GitHub.
 2. Sign in to GitHub if prompted.
 3. Look at the right side of the status bar for the Copilot usage indicator.
 4. Click the status bar item to open the full monthly breakdown panel.
+5. In the panel, review the "Previous 12 Months" table and use "Refresh History" to sync updated historical data.
 
 Status meanings:
 - check icon: usage pace is healthy
@@ -134,7 +139,7 @@ No backend service is included in this extension.
 
 ## Known Notes
 
-- Usage refresh interval is 1 hour.
+- Usage refresh interval is 30 minutes.
 - The default monthly limit is a fallback value; configure it for your real plan.
 
 ## Changelog

@@ -8,6 +8,21 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - No unreleased changes yet.
 
+## [0.1.0] - 2026-08-01
+
+### Added
+
+- Added `src/history.ts` with history management helpers for usage tracking.
+
+### Changed
+
+- Refactored the command flow in `src/extension.ts` to show a more detailed usage breakdown in Copilot Credit Tracker.
+- Bumped extension version in `package.json` to `0.1.0`.
+
+### Tests
+
+- Expanded test coverage in `src/test/extension.test.ts` for the new history behavior and detailed breakdown flow.
+
 ## [0.0.4] - 2026-07-16
 
 ### Changed
