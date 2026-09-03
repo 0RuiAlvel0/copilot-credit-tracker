@@ -389,7 +389,11 @@ async function renderDetailsPanel(panel: vscode.WebviewPanel): Promise<void> {
 
     let breakdownHtml = '';
     if (cachedUsageData?.usageItems && cachedUsageData.usageItems.length > 0) {
-        breakdownHtml = cachedUsageData.usageItems.map((item) => `
+        breakdownHtml = cachedUsageData.usageItems
+        // Add sort of results for release 0.0.5.
+        .sort((firstItem, secondItem) =>
+            (secondItem.grossQuantity ?? 0) - (firstItem.grossQuantity ?? 0))
+        .map((item) => `
             <tr style="border-bottom: 1px solid var(--vscode-panel-border);">
                 <td style="padding: 12px 8px;">${escapeHtml(item.model || item.sku || 'Unknown')}</td>
                 <td style="padding: 12px 8px;">${(item.grossQuantity || 0).toFixed(2)}</td>

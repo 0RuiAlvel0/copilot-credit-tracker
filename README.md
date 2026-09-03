@@ -1,10 +1,16 @@
-# Goal
+# Goal & Quick Overview
+
+### **When you have a GitHub Copilot subscription, you know how much you will spend, you just want to pace yourself throughout the month. This is what this extension helps you do.**
+
+---------
 
 A simple VS Code extension that compares your GitHub Copilot monthly credit usage with how much of the month has passed. I built it for a quick status bar check to see whether I am on track or running ahead of budget, without needing a full dashboard or detailed cost analysis.
 
-It shows this simple status bar message:
+It shows this simple status bar message like this:
 
 ![Copilot Credit Tracker Screenshot](https://ik.imagekit.io/supertechman/Screenshot%202026-07-15%20170018.png?updatedAt=1784106174855)
+
+It will turn red if your usage pace is ahead of your monthly budget.
 
 Because I can (and really not because I need), there's a bit more detail in a webview panel that breaks down usage by model and shows the total usage percentage. That looks like this:
 
