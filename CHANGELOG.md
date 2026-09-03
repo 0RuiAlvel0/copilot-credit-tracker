@@ -8,6 +8,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - No unreleased changes yet.
 
+## [0.1.2] - 2026-09-03
+
+### Changed
+
+- Updated the README for improved clarity and a more complete project overview.
+- Sorted the usage breakdown in the details panel (solves issue #1).
+
 ## [0.1.1] - 2026-08-01
 
 ### Changed
