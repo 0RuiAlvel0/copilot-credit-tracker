@@ -8,6 +8,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - No unreleased changes yet.
 
+## [0.1.3] - 2026-09-04
+
+- Corrected the release after the wrong version was previously compiled and published.
+
 ## [0.1.2] - 2026-09-03
 
 ### Changed
