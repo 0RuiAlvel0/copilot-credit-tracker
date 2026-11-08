@@ -26,6 +26,13 @@
           "type": "number",
           "default": 7000,
           "description": "Your monthly GitHub AI credit limit (e.g., 1500 for Pro, 7000 for Pro+)"
+        },
+        "copilotCreditTracker.refreshInterval": {
+          "type": "number",
+          "default": 30,
+          "maximum": 120,
+          "minimum": 2,
+          "description": "The refresh interval for updating Copilot credit usage data (in minutes). Default is 30 minutes. Maximum allowed is 120 minutes, minimum is 2 minutes."
         }
       }
     },

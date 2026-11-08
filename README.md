@@ -1,27 +1,27 @@
 # Goal & Quick Overview
 
-### **When you have a GitHub Copilot subscriptio (Pro, Pro+, Max - you rich!), you know how much you should spend, you just want to pace yourself throughout the month. This is what this extension helps you do.**
+### **When you have a GitHub Copilot subscription (Pro, Pro+, Max - you rich!), you know how much you should spend, you just want to pace yourself throughout the month. This is what this extension helps you do.**
 
-Tip: read the awards section below if you end up using this extension. Everyone's talking about this.
+Tip: read the awards section below if you end up using this extension. Everyone's talking about that.
 
 ---------
 
-The extension compares your GitHub Copilot monthly credit usage (this is editable on the settings, read below) with how much of the month has passed (this you cannot change, unless you are God). I needed this for a quick status bar check to see whether I am on track or running ahead of budget, without extra clicks and interactions and without the complexity of the information Copilot already provides. I am just a simple guy.
+The extension compares your GitHub Copilot monthly credit usage (you can configure that on the settings, details below) with how much of the month has passed (if you are God you can change that too). I needed this for a quick status bar check to see whether I am on track or running ahead of budget, without extra clicks and interactions and without the complexity of the information Copilot already provides. I am just a simple guy.
 
-This extension has been described as "fantastic" by my mother. It shows only a simple status bar message like this when all is well and you are behind your usage pace:
+This extension has been described as "fantastic" by my mother multiple times. It shows only a simple status bar message like the following when all is well and you are behind your usage pace:
 
 ![Copilot Credit Tracker Screenshot](https://ik.imagekit.io/supertechman/Screenshot%202026-07-15%20170018.png?updatedAt=1784106174855)
 
-It will turn red if your usage pace is ahead of your monthly budget. If that is the case, you may have to go into your additional budget, sorry - but don't worry, you'll get that and much more back when your vibe coded SaaS finally makes it big. You deserve it.
+It will turn red if your usage pace is ahead of your monthly budget. If that is the case, you may have to go into your additional budget. It's fine, you'll get that and much more back when your vibe coded SaaS finally makes it big. You deserve it.
 
 ![Copilot Credit Tracker Screenshot](https://ik.imagekit.io/supertechman/Screenshot%202026-10-29%20193127.png)
 
 ## Wait, there's more?!
-Yes, there's a webview panel that breaks down usage by model and shows the total usage percentage for the current month. I know, fantastic. That feature looks like this:
+Yep, there's a webview panel that breaks down usage by model and shows the total usage percentage for the current month. I know, fantastic. That feature looks like this:
 
 ![Copilot Credit Tracker Screenshot](https://ik.imagekit.io/supertechman/another.png)
 
-Wait, there is even more. The other day I wanted to know how my usage compared to previous months so I built the historical usage view into the extension as well because nothing can stop me and I do what I want. You can see here that I cannot control myself and have gone over budget a few times in plenty of moments of weakness.
+But wait, there's even more. The other day I wanted to know how my usage compared to previous months so I built an historical usage view into the extension as well because nothing can stop me and I do what I want. You can see here that I cannot control myself and have gone over budget a few times in plenty of moments of weakness.
 
 ![Copilot Credit Tracker Screenshot](https://ik.imagekit.io/supertechman/moreontheextension.png)
 
@@ -29,7 +29,7 @@ It even has a blue button, one of the most requested features. You click it, it 
 
 # Contacts
 
-- GitHub supository: [supertechman](https://github.com/0RuiAlvel0/copilot-credit-tracker)
+- GitHub suppository: [supertechman](https://github.com/0RuiAlvel0/copilot-credit-tracker)
 - Website: [supertechman.com](https://site.supertechman.com/posts/show/copilot-credit-tracker-in)
 
 ## How It Works
@@ -50,15 +50,15 @@ If you are not signed in, the extension prompts you to authenticate with GitHub.
 
 ## Installation
 
-### Option 1: From Marketplace
+### Option 1: From the Marketplace (for lazy users)
 
 1. Open Extensions in VS Code.
 2. Search for Copilot Credit Tracker.
 3. Click Install.
 
-### Option 2: From VSIX (local/manual install)
+### Option 2: Manual install (directly from .vsix or from source)
 
-1. You can download the latest .vsix file from the releases page. If you do that, you can start on step 3. Otherwise, you can build the .vsix file yourself from the source code like a peasant:
+1. You can download the latest .vsix file from the releases page. If you do that, you can start on step 3. below, otherwise, you can build the .vsix file yourself from the source code like a peasant:
 2. Package the extension:
 	 - npm install
 	 - npm run compile
@@ -85,19 +85,25 @@ Status meanings:
 
 ## Configuration
 
-This extension has one setting:
+This extension has 2 settings:
 
 - copilotCreditTracker.monthlyLimit
 	- Type: number
 	- Default: 7000
 	- Description: your monthly GitHub AI credit cap
+- *** under tests, should work *** copilotCreditTracker.refreshInterval
+	- Type: number
+	- Default: 30
+	- Maximum: 120
+	- Minimum: 2
+	- Description: The refresh interval for updating Copilot credit usage data (in minutes). Default is 30 minutes. Maximum allowed is 120 minutes, minimum is 2 minutes.
 
-Example values:
+Example values for the monthly limit:
 - 1500 for a lower-tier plan (Sorry, you poor).
 - 7000 for a higher-tier plan (Copilot Copilot Pro+ <- me, medium wealth. I am grateful for each day).
-- 100000000000000000000 (Altman, Dhh, these kind of people).
+- 100000000000000000000 (Altman, Amodei, Musk, DHH, that kind of people).
 
-Update this in Settings if your monthly credit allowance differs from the default.
+Update these in Settings if your monthly credit allowance differs from the default.
 
 ## Data and Permissions
 
@@ -119,12 +125,12 @@ No backend service is included in this extension.
 - No usage data in panel:
 	- There may be no usage yet for the selected month.
 	- Wait for the next refresh or reload window.
-	- I think that at times, if there are too many items on the task bar, VS Code will make it disappear or hide it, I am not too sure about this yet but it happens to me sometims and I hate it. Who developed this thing?
+	- See annoying stuff section below.
 
 ## Annoying stuff
 
 - Sometimes the status bar item disappears if there are too many items there. Still not too sure what is going on exactly, but it seems to be a VS Code thingy.
-- I have to make the refresh rate configurable (now hard coded at 30min) because many times my agent is hard at work and what the extension reports is not up-to-date until the next refresh and 30 minutes is too long.
+- There's a little offset at times between what the extension reports and what you can see on the GH Copilot panel. I am not sure if that is a rounding error or if the API is not updated as often - but I'd imagine that the Copilot panel also would get it's information from the API, I am not sure at this moment. Even brilliant people have their moments. 
 
 ## Development
 
@@ -145,4 +151,4 @@ No backend service is included in this extension.
 
 ## Awards
 
-- If you read until the end here, and you know this section is here you will be mentioned in the hall of fame of this extension which is a very important recognition. All you have to do is send a message to ci.res.network@gmail.com with your GH username - I will add you to the list that doesn't exist yet because nobody has done it so far (since 1990).
+- If you read until the end here, you will be mentioned in the hall of fame of this extension which is a very important recognition. All you have to do is send a message to ci.res.network@gmail.com with your GH username - I will add you to the list that doesn't exist yet because nobody has done it so far, since 1992.

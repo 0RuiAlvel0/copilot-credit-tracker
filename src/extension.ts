@@ -17,7 +17,8 @@ let detailsPanel: vscode.WebviewPanel | undefined;
 
 const HISTORY_KEY = 'copilotCreditTracker.previous12MonthHistory.v1';
 const PREVIOUS_MONTH_COUNT = 12;
-const GITHUB_API_TIMEOUT_MS = 15000;
+// This replaced by a configurable value on the extension settings (copilotCreditTracker.refreshInterval)
+//const GITHUB_API_TIMEOUT_MS = 15000;
 
 type BillingUsageItem = {
     model?: string;
@@ -53,13 +54,38 @@ export function activate(context: vscode.ExtensionContext) {
     statusBarItem.command = showPanelCommandId;
     void updateStatusBar();
 
-    const intervalHandle = setInterval(() => {
-        void updateStatusBar();
-    }, 1000 * 60 * 30);
+    let intervalHandle: ReturnType<typeof setInterval> | undefined;
 
-    context.subscriptions.push({
-        dispose: () => clearInterval(intervalHandle)
-    });
+    const restartRefreshTimer = () => {
+        if (intervalHandle !== undefined) {
+            clearInterval(intervalHandle);
+        }
+
+        intervalHandle = setInterval(() => {
+            void updateStatusBar();
+        }, determineRefreshInterval() * 60 * 1000);
+    };
+
+    restartRefreshTimer();
+
+    context.subscriptions.push(
+        vscode.workspace.onDidChangeConfiguration(event => {
+            if (event.affectsConfiguration('copilotCreditTracker.refreshInterval')) {
+                restartRefreshTimer();
+            }
+        }),
+        {
+            dispose: () => {
+                if (intervalHandle !== undefined) {
+                    clearInterval(intervalHandle);
+                }
+            }
+        }
+    );
+
+    // context.subscriptions.push({
+    //     dispose: () => clearInterval(intervalHandle)
+    // });
 }
 
 async function updateStatusBar(): Promise<void> {
@@ -264,7 +290,9 @@ async function fetchMonthlyBillingData(login: string, accessToken: string, year:
 
 async function fetchWithTimeout(input: string, init: RequestInit): Promise<Response> {
     const controller = new AbortController();
-    const timeoutHandle = setTimeout(() => controller.abort(), GITHUB_API_TIMEOUT_MS);
+    // const refreshInterval = determineRefreshInterval();
+    // const timeoutHandle = setTimeout(() => controller.abort(), refreshInterval * 60 * 1000);
+    const timeoutHandle = setTimeout(() => controller.abort(), 15_000);
 
     try {
         return await fetch(input, {
@@ -302,6 +330,15 @@ function determinePlanLimit(): number {
     }
 
     return 7000;
+}
+
+function determineRefreshInterval(): number {
+    const configInterval = vscode.workspace.getConfiguration('copilotCreditTracker').get<number>('refreshInterval');
+    if (configInterval && configInterval > 1 && configInterval <= 120) {
+        return configInterval;
+    }
+
+    return 30;
 }
 
 async function showDetailsPanel(): Promise<void> {
@@ -390,7 +427,6 @@ async function renderDetailsPanel(panel: vscode.WebviewPanel): Promise<void> {
     let breakdownHtml = '';
     if (cachedUsageData?.usageItems && cachedUsageData.usageItems.length > 0) {
         breakdownHtml = cachedUsageData.usageItems
-        // Add sort of results for release 0.0.5.
         .sort((firstItem, secondItem) =>
             (secondItem.grossQuantity ?? 0) - (firstItem.grossQuantity ?? 0))
         .map((item) => `
