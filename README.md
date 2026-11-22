@@ -1,12 +1,9 @@
 # Goal & Quick Overview
 
 ### **When you have a GitHub Copilot subscription (Pro, Pro+, Max - you rich!), you know how much you should spend, you just want to pace yourself throughout the month. This is what this extension helps you do.**
-
-Tip: read the awards section below if you end up using this extension. Everyone's talking about that.
-
 ---------
 
-The extension compares your GitHub Copilot monthly credit usage (you can configure that on the settings, details below) with how much of the month has passed (if you are God you can change that too). I needed this for a quick status bar check to see whether I am on track or running ahead of budget, without extra clicks and interactions and without the complexity of the information Copilot already provides. I am just a simple guy.
+This extension compares your GitHub Copilot monthly credit usage (you can configure that on the settings) with how much of the month has passed (only God can change that). I needed this for a quick status bar check to see whether I am on track or running ahead of budget, without extra clicks and interactions and without the complexity of the information Copilot already provides. I am just a simple guy.
 
 This extension has been described as "fantastic" by my mother multiple times. It shows only a simple status bar message like the following when all is well and you are behind your usage pace:
 
@@ -130,7 +127,8 @@ No backend service is included in this extension.
 ## Annoying stuff
 
 - Sometimes the status bar item disappears if there are too many items there. Still not too sure what is going on exactly, but it seems to be a VS Code thingy.
-- There's a little offset at times between what the extension reports and what you can see on the GH Copilot panel. I am not sure if that is a rounding error or if the API is not updated as often - but I'd imagine that the Copilot panel also would get it's information from the API, I am not sure at this moment. Even brilliant people have their moments. 
+- There's a little offset at times between what the extension reports and what you can see on the GH Copilot panel. I am not sure if that is a rounding error or if the API is not updated as often - but I'd imagine that the Copilot panel also would get it's information from the API, I am not sure at this moment. Even brilliant people have their moments.
+- I am still not 100% certain if the configurable interval is working properly. I will kepp testing, results when I have them.
 
 ## Development
 
