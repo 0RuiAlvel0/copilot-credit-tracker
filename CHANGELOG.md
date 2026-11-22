@@ -4,9 +4,10 @@ All notable changes to the "copilot-credit-tracker" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.1.5]
 
-- No unreleased changes yet.
+- This one adds the refresh time (time interval between requests to the GH API so you can change how fast your usage is updated). Still under tests to confirm this is workign as expected, sometimes it will not update in time, not sure why.
+- 0.1.4 was only a minor adjustment, so no change log for that.
 
 ## [0.1.3] - 2026-09-04
 
